@@ -1,10 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
-
+import NavBar from "./components/Nabvar";
+import EventViewerPage from "./components/pages/EventViewerPage";
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <div>
+      <NavBar />
+      <EventViewerPage />
     </div>
   );
 }
