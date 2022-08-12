@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { MusicNoteIcon } from "@heroicons/react/solid";
 
-
-const EventCategoryCarousel = () => {
+const EventCategoryCarousel = (props) => {
   const maxScrollWidth = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carousel = useRef(null);
+  const { handleButton } = props;
 
   const movePrev = () => {
     if (currentIndex > 0) {
@@ -23,7 +23,6 @@ const EventCategoryCarousel = () => {
   };
 
   const isDisabled = (direction) => {
-    debugger;
     if (direction === "prev") {
       return currentIndex <= 0;
     }
@@ -50,7 +49,7 @@ const EventCategoryCarousel = () => {
   }, []);
 
   return (
-    <div className="carousel my-12 mx-auto w-1/2">
+    <div className="carousel my-12 mx-auto w-full">
       <div className="relative overflow-hidden">
         <div className="flex justify-between absolute top left w-full h-full">
           <button
@@ -100,8 +99,11 @@ const EventCategoryCarousel = () => {
           ref={carousel}
           className="carousel-container relative flex justify-center gap-1 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0"
         >
-          <button class="bg-red-400 relative h-10 w-44 ml-2 hover:bg-red-300 border border-black text-black font-bold py-2 px-4 rounded">
-          {/* <MusicNoteIcon
+          <button
+            class="bg-red-400 relative h-10 w-44 ml-2 hover:bg-red-300 border border-black text-black font-bold py-2 px-4 rounded"
+            onClick={()=>handleButton("music")}
+          >
+            {/* <MusicNoteIcon
               className=" hidden xl:block absolute h-6 w-6 text-black"
               aria-hidden="true"
             /> */}
@@ -110,7 +112,8 @@ const EventCategoryCarousel = () => {
           <button class="bg-white h-10 w-44 ml-2 text-black border border-black font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed">
             Visual Art
           </button>
-          <button class="bg-yellow-400 h-10 w-44 ml-2 hover:bg-yellow-300 border border-black text-black font-bold py-2 px-4 rounded">
+          <button class="bg-yellow-400 h-10 w-44 ml-2 hover:bg-yellow-300 border border-black text-black font-bold py-2 px-4 rounded"
+          onClick={()=>handleButton("drink")} >
             Food & Drink
           </button>
           <button class="bg-white text-black border h-10 w-44 ml-2 border-black font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed">

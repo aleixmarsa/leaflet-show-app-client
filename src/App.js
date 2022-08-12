@@ -4,9 +4,9 @@ import NavBar from "./components/Nabvar";
 import EventViewerPage from "./components/pages/EventViewerPage";
 function App() {
   return (
-    <div>
-      <NavBar />
-      <EventViewerPage />
+    <div className="flex flex-col h-screen">
+      <NavBar/>
+      <EventViewerPage/>
     </div>
   );
 }

@@ -9,7 +9,8 @@ function classNames(...classes) {
 
 export default function NavBar() {
   return (
-    <Disclosure as="nav" className="bg-white shadow">
+
+    <Disclosure as="nav" className="bg-white border-b border-b-black w-full">
       {({ open }) => (
         <>
           <div className=" max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
@@ -118,5 +119,6 @@ export default function NavBar() {
         </>
       )}
     </Disclosure>
+
   );
 }
